@@ -1,0 +1,340 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"görli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"apy()": "3bcfc4b8",
+			"balance()": "b69ef8a8",
+			"balanceOf(address)": "70a08231",
+			"deposit(uint256)": "b6b55f25",
+			"depositAll()": "de5f6268",
+			"getReward()": "3d18b912",
+			"harvest()": "4641257d",
+			"info(address)": "0aae7a6b",
+			"principalOf(address)": "61e20a1c",
+			"profitOf(address)": "54198ce9",
+			"tvl()": "e5328e06",
+			"withdraw(uint256)": "2e1a7d4d",
+			"withdrawAll()": "853828b6",
+			"withdrawableBalanceOf(address)": "3aa6c4f9"
+		}
+	},
+	"abi": [
+		{
+			"inputs": [],
+			"name": "apy",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "_usd",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_bunny",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_bnb",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "balance",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				}
+			],
+			"name": "balanceOf",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_amount",
+					"type": "uint256"
+				}
+			],
+			"name": "deposit",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "depositAll",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getReward",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "harvest",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				}
+			],
+			"name": "info",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "uint256",
+							"name": "balance",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "principal",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "available",
+							"type": "uint256"
+						},
+						{
+							"components": [
+								{
+									"internalType": "uint256",
+									"name": "usd",
+									"type": "uint256"
+								},
+								{
+									"internalType": "uint256",
+									"name": "bunny",
+									"type": "uint256"
+								},
+								{
+									"internalType": "uint256",
+									"name": "bnb",
+									"type": "uint256"
+								}
+							],
+							"internalType": "struct IStrategyLegacy.Profit",
+							"name": "profit",
+							"type": "tuple"
+						},
+						{
+							"internalType": "uint256",
+							"name": "poolTVL",
+							"type": "uint256"
+						},
+						{
+							"components": [
+								{
+									"internalType": "uint256",
+									"name": "usd",
+									"type": "uint256"
+								},
+								{
+									"internalType": "uint256",
+									"name": "bunny",
+									"type": "uint256"
+								},
+								{
+									"internalType": "uint256",
+									"name": "bnb",
+									"type": "uint256"
+								}
+							],
+							"internalType": "struct IStrategyLegacy.APY",
+							"name": "poolAPY",
+							"type": "tuple"
+						}
+					],
+					"internalType": "struct IStrategyLegacy.UserInfo",
+					"name": "",
+					"type": "tuple"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				}
+			],
+			"name": "principalOf",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				}
+			],
+			"name": "profitOf",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "_usd",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_bunny",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_bnb",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "tvl",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_amount",
+					"type": "uint256"
+				}
+			],
+			"name": "withdraw",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "withdrawAll",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				}
+			],
+			"name": "withdrawableBalanceOf",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		}
+	]
+}

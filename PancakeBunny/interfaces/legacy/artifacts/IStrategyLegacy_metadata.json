@@ -1,0 +1,320 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "apy",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "_usd",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_bunny",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_bnb",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "balance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "depositAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getReward",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "harvest",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "info",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "balance",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "principal",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "available",
+								"type": "uint256"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "usd",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "bunny",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "bnb",
+										"type": "uint256"
+									}
+								],
+								"internalType": "struct IStrategyLegacy.Profit",
+								"name": "profit",
+								"type": "tuple"
+							},
+							{
+								"internalType": "uint256",
+								"name": "poolTVL",
+								"type": "uint256"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "usd",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "bunny",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "bnb",
+										"type": "uint256"
+									}
+								],
+								"internalType": "struct IStrategyLegacy.APY",
+								"name": "poolAPY",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct IStrategyLegacy.UserInfo",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "principalOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "profitOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "_usd",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_bunny",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_bnb",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tvl",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdrawAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "withdrawableBalanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"PancakeBunny/interfaces/legacy/IStrategyLegacy.sol": "IStrategyLegacy"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 210
+		},
+		"remappings": []
+	},
+	"sources": {
+		"PancakeBunny/interfaces/legacy/IStrategyLegacy.sol": {
+			"keccak256": "0x119863415b419c1eef615f27c25d4dcfb5c5b47f61bea6f3f92589c5d77f0cd0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d414008bcc9119cf5ee3e7f2b71d87d2e153d418f7662e9ee2be3355d8a52735",
+				"dweb:/ipfs/Qme5XabWa3AaSdAxAsR8bkzYW8qzoF9xz86ka5rr971PZJ"
+			]
+		}
+	},
+	"version": 1
+}

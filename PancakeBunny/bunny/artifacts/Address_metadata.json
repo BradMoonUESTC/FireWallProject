@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"PancakeBunny/bunny/BunnyToken.sol": "Address"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"PancakeBunny/bunny/BunnyToken.sol": {
+			"keccak256": "0xf760b2287343abff4afde08ae52c02f16ef91b2b3b0f08da488db525cf13e33b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7ddc692637e394997925e205e79826f240242899438e838f07eba01b9b4eacbc",
+				"dweb:/ipfs/QmbTBNmZ5FYNjDKNZPoDSXJgqLS3QW3yDqXK2T1H4rN4zS"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,191 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "flipToken",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"PancakeBunny/vaults/legacy/BunnyPool.sol": "IPresale"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@pancakeswap/pancake-swap-lib/contracts/GSN/Context.sol": {
+			"keccak256": "0xb5d5654ea9545f91be35321202e885255490867560afbc0c6a55f8b6c4068386",
+			"license": "GPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://ad45743b2fb8322c467618955a89bb82e40b6b730f19c04bf4b0e5eb6d25f39b",
+				"dweb:/ipfs/QmR7HdkW9VsAeiSQRrA3LntW36RCv5iczoLkBcQpTc2UYo"
+			]
+		},
+		"@pancakeswap/pancake-swap-lib/contracts/access/Ownable.sol": {
+			"keccak256": "0xe4099b9c99c22b28d8c1676803e2ff6f34ddc043d1e8631476e8e417c81aa7a3",
+			"license": "GPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://dc140c98056178b731be974f42d523134258162fdf379ef6ed2eeb234fc067df",
+				"dweb:/ipfs/QmZNQ3FNYS17E2HjyX4eqk7RYfSJtaG5b47W27xatJjNeo"
+			]
+		},
+		"@pancakeswap/pancake-swap-lib/contracts/math/SafeMath.sol": {
+			"keccak256": "0xd4b1686c1494213666dc1423cea64333c3063f334327216d69ca3d59f75a2517",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3a3c967dc005a8966266b6052724b7cd04231c6d95abcc03f49e1cbb9ffb890a",
+				"dweb:/ipfs/QmRWofmmac5HLRYpMTDQLzmgZyJYeYLB2MY8uTFRKfJuJL"
+			]
+		},
+		"@pancakeswap/pancake-swap-lib/contracts/token/BEP20/IBEP20.sol": {
+			"keccak256": "0xcca9eeefad9d3c8a68e426833a5c790d055beebc3f1cefbeac20b096456c9aef",
+			"license": "GPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://61090ac66da4fcf117cb95119cda4c45b5bcf9f8a48203444b0f97b39a9ccbd1",
+				"dweb:/ipfs/Qmb1XnfUGdZ7ma31WqhGMaE9mWug1erEUh8xEYvvjZ5v4r"
+			]
+		},
+		"@pancakeswap/pancake-swap-lib/contracts/token/BEP20/SafeBEP20.sol": {
+			"keccak256": "0xaf7a7cce5c7e15107bdb2c074331471d301e2766dac8942cf92f0298df7cd0b3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1b658c964602f8144999d0fe08f9dcd0494abfeeb839e9d54812d690c10c21ca",
+				"dweb:/ipfs/QmYNVqdu4QjwDKQ5K7ATwhByPoae1uKMguxmoCRKnc8QmP"
+			]
+		},
+		"@pancakeswap/pancake-swap-lib/contracts/utils/Address.sol": {
+			"keccak256": "0x806c8686fdf1afac78d0828ca7941e5ac30282a358d23cf502ec39893c64d4af",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://be41cfa7e8aaf4c95e1517007964cef2470abd47ad578293db4cd25434ee77ea",
+				"dweb:/ipfs/QmPX9qcHJNv1vA6Nxue8c46wxdXwKdLcUyXxEQ91F93u7a"
+			]
+		},
+		"PancakeBunny/interfaces/IBunnyMinter.sol": {
+			"keccak256": "0xd5e01815c3570aaf4c72c5a53e2921ff08a5059e216d10e96024792c3da617c2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d2915e2e31d4a5306cd6a7fc0d70fc341ac2d3e84bd5de2c96efaab9c7a02b94",
+				"dweb:/ipfs/Qme1Sz5c3zBxcZEXB4Cjt2RG1qmF3uFp67zH3QBZsB4fPa"
+			]
+		},
+		"PancakeBunny/interfaces/IPancakeRouter01.sol": {
+			"keccak256": "0x1e9baeab11f3bfe8725d75e51a5faf5d4dfe3fd381bf50b31412faa9097539a3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://009de3cc2711569d345bbe82ec13eac3bf762a6f3114f6910baab08d4670bbb6",
+				"dweb:/ipfs/QmUJ4d8X8cr2xH5GwY4KLoykiNwcJf6KgdQPMKnnh39bwG"
+			]
+		},
+		"PancakeBunny/interfaces/IPancakeRouter02.sol": {
+			"keccak256": "0x97e6fdb750ca6aa448db32b5e5da0cc4d49751c441716b5c51ac8a24ada3c8ad",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1d19403fdfed604b9e03f24d2a99b80a6ad5a36d9b1b3422b39c4c31d33babe4",
+				"dweb:/ipfs/QmPMztMLh3LfhzvotSDAHAZKbGcohdgewarJa4n37mhB8e"
+			]
+		},
+		"PancakeBunny/interfaces/legacy/IStrategyHelper.sol": {
+			"keccak256": "0xd8f2a60dd027f5a60faf4f9e59553f9d77a18cc0c134234f693ffa8f287761e9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://71ad39a056bcbdc02938cba56b20ececb719a1dae591f4142b43b60651b44fe3",
+				"dweb:/ipfs/QmUXJM7EgGw7QtptvyPACD7Fo14f92cccmzncQiSWm4LCB"
+			]
+		},
+		"PancakeBunny/interfaces/legacy/IStrategyLegacy.sol": {
+			"keccak256": "0x119863415b419c1eef615f27c25d4dcfb5c5b47f61bea6f3f92589c5d77f0cd0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d414008bcc9119cf5ee3e7f2b71d87d2e153d418f7662e9ee2be3355d8a52735",
+				"dweb:/ipfs/Qme5XabWa3AaSdAxAsR8bkzYW8qzoF9xz86ka5rr971PZJ"
+			]
+		},
+		"PancakeBunny/library/legacy/Pausable.sol": {
+			"keccak256": "0x7c907457ab6cc0f6b669f2cb4c43b2679270a7ead1cedc68d1e2e00c05c12950",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e23898b68629c867febdf5727d69f10f2c672d6f025ccb3761ace6a6eaa89251",
+				"dweb:/ipfs/QmfJBgB5gxVNVzHqJjedTbJqaDYiRR8Nnaw3CAuq3ftCVL"
+			]
+		},
+		"PancakeBunny/library/legacy/RewardsDistributionRecipient.sol": {
+			"keccak256": "0x0138230ec66ca3c8e077f4c3971f758c24b2bc96babd0e257fa22cd9c75c50c8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a0f6d48850984aea59a8bd6f84fb29380e0ecf9a058322ddb92d998999369b8b",
+				"dweb:/ipfs/Qmd6QE599SeMPai5sAuR4jeuHrMneTsyfd31yw6K1hUdrV"
+			]
+		},
+		"PancakeBunny/vaults/Math.sol": {
+			"keccak256": "0xb8637b57fc4f2d21db2d6735621febee86da34da5d00caea63a635590ca20269",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8c39d0524d32773b6029f68b1d9426c6053af0e754b67b1b0a66d7cfa9bf6ff6",
+				"dweb:/ipfs/QmdtbtVYmSpf8BkQADTGz3xirX8q63BQUdAir33P5nWt37"
+			]
+		},
+		"PancakeBunny/vaults/legacy/BunnyPool.sol": {
+			"keccak256": "0x3457e737e6150d49d4b477f32e385fa971d6b4de1241e44e290ff03e278356c2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://837b23cd7147e98a905a1748a2e76bff13a2492c1b54d646fc5a1fbdba8228a6",
+				"dweb:/ipfs/QmRwecBN319v21SUgYLw7c2UK9ij4bfkRw9YsNjmxfTW9d"
+			]
+		},
+		"PancakeBunny/vaults/legacy/ReentrancyGuard.sol": {
+			"keccak256": "0xbb32699d1ef7007da26643e240c7c6cbec0561df85aa9c8d62b282b69088bf3d",
+			"urls": [
+				"bzz-raw://e7e46d5b2783bec5f1d8d0dee67427ea6713fa7ab631b6a52d6f9084d8d52d28",
+				"dweb:/ipfs/QmPRWzs46H7tXSWooQWnSsCpG81kVRZsNTs2Snxmfctj65"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,75 @@
+{
+	"compiler": {
+		"version": "0.6.6+commit.6c089d02"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"PancakeSwap-periphery/libraries/PancakeOracleLibrary.sol": "PancakeOracleLibrary"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@uniswap/lib/contracts/libraries/Babylonian.sol": {
+			"keccak256": "0xeb1c2a281a00f4660775f75ccfa1e51fbe1d75f86aeb9d0d297151ecdb900177",
+			"urls": [
+				"bzz-raw://68515f0265381bddfb1d1356ea10ce4e5784276fc09f197fcdcedfa5c75cc069",
+				"dweb:/ipfs/QmXWVVPnuJwRUAu3Qpu1s7Fyc5WPQxmZPczVEe5cJ5wVHZ"
+			]
+		},
+		"@uniswap/lib/contracts/libraries/BitMath.sol": {
+			"keccak256": "0x19f84d5268286794b44939ec0d85b3c6f59e133f826cdbd9e40112fc94919bb7",
+			"urls": [
+				"bzz-raw://d21c67ed58cf667d052e141df2fba76c46c159edcc45eb897c908c20c69d2727",
+				"dweb:/ipfs/QmUyKz1992wgR8nYAzBuQzjBAKMxLAN3hTgzpYJxusbmVH"
+			]
+		},
+		"@uniswap/lib/contracts/libraries/FixedPoint.sol": {
+			"keccak256": "0xc3a39b8a11715cea45ad9f67f50e4e4c33778c1124acd59e90daf064c9a93974",
+			"urls": [
+				"bzz-raw://2c6c3cdcdb30caa5d15477550003b5dbb174cb2c0be3c012af030fce3d043f28",
+				"dweb:/ipfs/QmWh3n5g6zq3umJcURnKCFhhif2c8yb6mKczFjfoCNLC3g"
+			]
+		},
+		"@uniswap/lib/contracts/libraries/FullMath.sol": {
+			"keccak256": "0xc4ffcf28169f73fc9fdd1f82345d6d4fcccf3fd5aea83c133437c25e4e0950a9",
+			"urls": [
+				"bzz-raw://c9257a47501005f0a648bc4801ef4abc33843681aaf03a6d0c43d46b69e37407",
+				"dweb:/ipfs/QmciHvDrqhxs5fjsrm9aNq29FZXpunMn17n2wWj83Zsh3B"
+			]
+		},
+		"PancakeSwap-core/interfaces/IPancakePair.sol": {
+			"keccak256": "0xc432aeec5c038f15c3670ee6128ce41dbfa1f7a9979dc37b967213436ae77b33",
+			"urls": [
+				"bzz-raw://3bb06c5526b4691a4128f4f8f6a2ecca9af5f149848a2ec4cb60bd775d94568b",
+				"dweb:/ipfs/QmRYv5qt1TzSEPYhSXvfejncnGwZV5o6twDrTmtVg2Rx74"
+			]
+		},
+		"PancakeSwap-periphery/libraries/PancakeOracleLibrary.sol": {
+			"keccak256": "0xdb4fc67489f0228657ae3a80541c94b121eba898e92e4ff9397354a7c8439f82",
+			"urls": [
+				"bzz-raw://abb6c2620e330d1eb7b581f531188468fda4cc965e564b9405c90671eaa07744",
+				"dweb:/ipfs/QmasHZ4jtdtgRzi7s1GxqTdfpw1CXsE8a9tKMuvtKpqa87"
+			]
+		}
+	},
+	"version": 1
+}

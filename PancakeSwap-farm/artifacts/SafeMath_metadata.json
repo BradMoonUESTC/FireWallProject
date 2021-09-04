@@ -1,0 +1,44 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"PancakeSwap-farm/MasterChef.sol": "SafeMath"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"PancakeSwap-farm/MasterChef.sol": {
+			"keccak256": "0x8d121db344e4a1c238428209e001edb0d04bb51fd544a778120ea35917e41312",
+			"urls": [
+				"bzz-raw://337b569f2d6becc1609fb917a232c5e9b48d7b968c92588adfa7a665ffbefb65",
+				"dweb:/ipfs/QmaFbcFPmW7Vp6aeaayVkEFfrpHVUN5hpwaMdZY85KsmAM"
+			]
+		}
+	},
+	"version": 1
+}

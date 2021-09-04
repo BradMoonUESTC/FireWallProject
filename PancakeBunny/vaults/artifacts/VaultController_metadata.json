@@ -1,0 +1,537 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [],
+				"name": "DisableWhitelist",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [],
+				"name": "EnableWhitelist",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "isPaused",
+						"type": "bool"
+					}
+				],
+				"name": "PauseChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Recovered",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "whitelist",
+						"type": "bool"
+					}
+				],
+				"name": "Whitelisted",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "bunnyChef",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "disable",
+						"type": "bool"
+					}
+				],
+				"name": "disableWhitelist",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isWhitelist",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "keeper",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lastPauseTime",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "minter",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "paused",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "recoverToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IBunnyChef",
+						"name": "newBunnyChef",
+						"type": "address"
+					}
+				],
+				"name": "setBunnyChef",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_keeper",
+						"type": "address"
+					}
+				],
+				"name": "setKeeper",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newMinter",
+						"type": "address"
+					}
+				],
+				"name": "setMinter",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "_paused",
+						"type": "bool"
+					}
+				],
+				"name": "setPaused",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_on",
+						"type": "bool"
+					}
+				],
+				"name": "setWhitelist",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "stakingToken",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"PancakeBunny/vaults/VaultController.sol": "VaultController"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol": {
+			"keccak256": "0xfd3bcd55e747d19adf399651e299e4c8546d3e4b62839cee20268fa14730be2f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://98d8a8555ebdffff6e12253055089821929e63a3f9ea9153377bdfbbc151768a",
+				"dweb:/ipfs/QmPHdwEQh95RJnea77qaxEfGJPKW4jc4bXX14JyTYRP9qi"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": {
+			"keccak256": "0xcf0519f503e8a3367873db49d86b820c823fa6d4379c52305c672ea62a5de871",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://afe49f2a66e59e3b9f8eff2b15242ac0cef27312474d0b7e210f62098d7cbd18",
+				"dweb:/ipfs/QmPtQb1DikqVanGqn7pdpChTmJA4DS6drAZXktJ6aQzxb6"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol": {
+			"keccak256": "0x629263ef0ddc34f6f80bcb48034c82de5a029b6b21976a24c20ddc9575b1e5fc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://06536af016072f9189ec1f6aae55f777958dc582d24ec434f03ca2095f2dcd01",
+				"dweb:/ipfs/QmaRHnFGDRfEQ6Ldb4WPW1KcRwdr7orbiFijLNYJEEPpZY"
+			]
+		},
+		"@pancakeswap/pancake-swap-lib/contracts/GSN/Context.sol": {
+			"keccak256": "0xb5d5654ea9545f91be35321202e885255490867560afbc0c6a55f8b6c4068386",
+			"license": "GPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://ad45743b2fb8322c467618955a89bb82e40b6b730f19c04bf4b0e5eb6d25f39b",
+				"dweb:/ipfs/QmR7HdkW9VsAeiSQRrA3LntW36RCv5iczoLkBcQpTc2UYo"
+			]
+		},
+		"@pancakeswap/pancake-swap-lib/contracts/access/Ownable.sol": {
+			"keccak256": "0xe4099b9c99c22b28d8c1676803e2ff6f34ddc043d1e8631476e8e417c81aa7a3",
+			"license": "GPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://dc140c98056178b731be974f42d523134258162fdf379ef6ed2eeb234fc067df",
+				"dweb:/ipfs/QmZNQ3FNYS17E2HjyX4eqk7RYfSJtaG5b47W27xatJjNeo"
+			]
+		},
+		"@pancakeswap/pancake-swap-lib/contracts/math/SafeMath.sol": {
+			"keccak256": "0xd4b1686c1494213666dc1423cea64333c3063f334327216d69ca3d59f75a2517",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3a3c967dc005a8966266b6052724b7cd04231c6d95abcc03f49e1cbb9ffb890a",
+				"dweb:/ipfs/QmRWofmmac5HLRYpMTDQLzmgZyJYeYLB2MY8uTFRKfJuJL"
+			]
+		},
+		"@pancakeswap/pancake-swap-lib/contracts/token/BEP20/BEP20.sol": {
+			"keccak256": "0x0442404a56112b52de7e4a64eb0d9fe346add08d122b52e848e43c9f22d707c5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://abbecb866acdd459f567efac348a519758c46ca0b53415c484b28b2d28c7b19f",
+				"dweb:/ipfs/Qmdo86JSfRcqoMr6Z2H3k1NMZQ6qZCSvSihzCb5Eq7d8DJ"
+			]
+		},
+		"@pancakeswap/pancake-swap-lib/contracts/token/BEP20/IBEP20.sol": {
+			"keccak256": "0xcca9eeefad9d3c8a68e426833a5c790d055beebc3f1cefbeac20b096456c9aef",
+			"license": "GPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://61090ac66da4fcf117cb95119cda4c45b5bcf9f8a48203444b0f97b39a9ccbd1",
+				"dweb:/ipfs/Qmb1XnfUGdZ7ma31WqhGMaE9mWug1erEUh8xEYvvjZ5v4r"
+			]
+		},
+		"@pancakeswap/pancake-swap-lib/contracts/token/BEP20/SafeBEP20.sol": {
+			"keccak256": "0xaf7a7cce5c7e15107bdb2c074331471d301e2766dac8942cf92f0298df7cd0b3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1b658c964602f8144999d0fe08f9dcd0494abfeeb839e9d54812d690c10c21ca",
+				"dweb:/ipfs/QmYNVqdu4QjwDKQ5K7ATwhByPoae1uKMguxmoCRKnc8QmP"
+			]
+		},
+		"@pancakeswap/pancake-swap-lib/contracts/utils/Address.sol": {
+			"keccak256": "0x806c8686fdf1afac78d0828ca7941e5ac30282a358d23cf502ec39893c64d4af",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://be41cfa7e8aaf4c95e1517007964cef2470abd47ad578293db4cd25434ee77ea",
+				"dweb:/ipfs/QmPX9qcHJNv1vA6Nxue8c46wxdXwKdLcUyXxEQ91F93u7a"
+			]
+		},
+		"PancakeBunny/interfaces/IBunnyChef.sol": {
+			"keccak256": "0x6245e23aec2f71e2a0241477e35fae7f74e22945201723c7e4e618f7bd60af6c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b4110eceaffa4a5cdd7736a1b3149a09c56f605cb5757856a2275e36ab38c1c1",
+				"dweb:/ipfs/QmZjdbfRicc7LtCWroTy9PWBYa4VPPJcwCVx94kK2Ndt5X"
+			]
+		},
+		"PancakeBunny/interfaces/IBunnyMinterV2.sol": {
+			"keccak256": "0x48438b0853d3c5838df98e7dada39bd67445c37270b0157484e45bfcd68da524",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://540ddbcb426e64f7e6573dda219cd69457ffa43f4e7ffc410370bb8f2a76cdf0",
+				"dweb:/ipfs/QmcVbvaocg8KythT7v1Cthbu5qJbQHQuQsJJZ6tFegAdKR"
+			]
+		},
+		"PancakeBunny/interfaces/IMasterChef.sol": {
+			"keccak256": "0xd3f5b4439178dce5b1a6a030590a40535351cdcf959688c125b68cedf439d0df",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e0d50105aff72e49b70119886504da2de42f65b531f69c48baa127020f008868",
+				"dweb:/ipfs/QmQiaZcdTk6DoajDyoRfkEr6uuEbMX3w87e1r54GtHa7sK"
+			]
+		},
+		"PancakeBunny/interfaces/IPancakePair.sol": {
+			"keccak256": "0x592e23b03960121223eef60794aaf5f7dd2a003277fa3bb542dc8594e2f23439",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9c6aa27e18e76cd41563394b6fd87b128a93b3e2541e0dd33d017ed0956389ed",
+				"dweb:/ipfs/QmZb44Yg8k7DnsNtBYZRo2ynqcNjVnTq8W8545i2P1cL1n"
+			]
+		},
+		"PancakeBunny/interfaces/IPancakeRouter01.sol": {
+			"keccak256": "0x1e9baeab11f3bfe8725d75e51a5faf5d4dfe3fd381bf50b31412faa9097539a3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://009de3cc2711569d345bbe82ec13eac3bf762a6f3114f6910baab08d4670bbb6",
+				"dweb:/ipfs/QmUJ4d8X8cr2xH5GwY4KLoykiNwcJf6KgdQPMKnnh39bwG"
+			]
+		},
+		"PancakeBunny/interfaces/IPancakeRouter02.sol": {
+			"keccak256": "0x97e6fdb750ca6aa448db32b5e5da0cc4d49751c441716b5c51ac8a24ada3c8ad",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1d19403fdfed604b9e03f24d2a99b80a6ad5a36d9b1b3422b39c4c31d33babe4",
+				"dweb:/ipfs/QmPMztMLh3LfhzvotSDAHAZKbGcohdgewarJa4n37mhB8e"
+			]
+		},
+		"PancakeBunny/interfaces/IStrategy.sol": {
+			"keccak256": "0xfcefa88f8c8d70969e0fbb710058ea556d86a72bf416c1021cf8de62b3959f65",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0dd8dbb73b235ec0f955d8e31e319661225678f34f29c7511feb52a426889236",
+				"dweb:/ipfs/QmYAQWbMub9QVL9DLvPUJhAPSRKx1i9co2BXKUaV3kPfQa"
+			]
+		},
+		"PancakeBunny/interfaces/IVaultController.sol": {
+			"keccak256": "0xe9e2c53f069afd1dc3f5117f8171b0ac50d8974e72f0065ec8169be51255a037",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e32c2acac1ac532be60b5776ffaca7e7f7839f728396597cb2be68379677f01c",
+				"dweb:/ipfs/QmUDf91hP5ZMGHkwwBWN95fnsicp9jzTUirS6rEPGG1cUq"
+			]
+		},
+		"PancakeBunny/library/PausableUpgradeable.sol": {
+			"keccak256": "0x13182787c99e46afa4629be92401f05bdf197ad9e5276c37ea1bf962fc48b7e1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://81fb213131013be8bf85d507e8fa71f938071096960ff1a6d2123e2227a61618",
+				"dweb:/ipfs/QmeefUU8QDmmrB5zUMH7WtNxaheb2df5Nc4Gghzyy9hn7M"
+			]
+		},
+		"PancakeBunny/library/PoolConstant.sol": {
+			"keccak256": "0x0894eea31f0279529f4d894c15465de9109a0e49ad21c79917830cc623078b10",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://2ced758dd3071aca7a51e59840c7ce0d9feece1fb0531293fa46f68267968530",
+				"dweb:/ipfs/QmNR85CpcDcqD6LmUwFuXF5Lvy1rUuHipfTKdwkzvmdVW5"
+			]
+		},
+		"PancakeBunny/library/WhitelistUpgradeable.sol": {
+			"keccak256": "0x8535a94a4a3d9f27427b324498b9af47bb27079273447b2876c997e974b8d728",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://dcf77488c98377bea4bc8ecea31cde672f7b62214d341eddc8f594bffe959035",
+				"dweb:/ipfs/QmNeim1fvDh1ofGj7mZMBXMEh8Wf5rdBhro1LqiHdH787e"
+			]
+		},
+		"PancakeBunny/vaults/VaultController.sol": {
+			"keccak256": "0xcd80b7d354189e86e71554898b57ffda78a300cafba0e20b8004ca9cb729cd83",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d9b7b896af7b13644cf72c67f55fe2ca5b6c98631b8eea93be0c09fabe92b1eb",
+				"dweb:/ipfs/QmeJcYGz3ysS89ussEhr6yJMXbrK1xYYzis3snjcfxXqc8"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,46 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"details": "Standard math utilities missing in the Solidity language.",
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"PancakeBunny/vaults/Math.sol": "Math"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"PancakeBunny/vaults/Math.sol": {
+			"keccak256": "0xb8637b57fc4f2d21db2d6735621febee86da34da5d00caea63a635590ca20269",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8c39d0524d32773b6029f68b1d9426c6053af0e754b67b1b0a66d7cfa9bf6ff6",
+				"dweb:/ipfs/QmdtbtVYmSpf8BkQADTGz3xirX8q63BQUdAir33P5nWt37"
+			]
+		}
+	},
+	"version": 1
+}
