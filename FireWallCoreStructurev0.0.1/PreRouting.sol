@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: MIT
-/// @title TxPreRouting -- TxPreRouting
+/// @title PreRouting -- PreRouting
 /// @author BloodMoon - <nerbonic@gmail.com>
 /// @version 0.0.1
 pragma solidity ^0.8.0;
-import {LTxDecoder} from "./LTxDecoder.sol";
-import {ITxDecoder} from "./ITxDecoder.sol";
-contract TxPreRouting{
+import {LDecoder} from "./LDecoder.sol";
+import {IDecoder} from "./IDecoder.sol";
+contract PreRouting{
     
     address DECODER_ADDRESS;
     function Initialize(address DecoderAddress) external{
@@ -18,16 +18,16 @@ contract TxPreRouting{
         //package Process:
         //params(which save params info) and transaction(which save tx info)
         //=============================
-        LTxDecoder.FunctionParamsValue memory _keyParam=ITxDecoder(DECODER_ADDRESS).PackageParamString(_key);
-        LTxDecoder.FunctionParamsValue memory _valueParam=ITxDecoder(DECODER_ADDRESS).PackageParamUint(_value);
-        ITxDecoder(DECODER_ADDRESS).setParam("_key",_keyParam);
-        ITxDecoder(DECODER_ADDRESS).setParam("_value",_valueParam);
-        ITxDecoder(DECODER_ADDRESS).addParamNameToArray("_key");
-        ITxDecoder(DECODER_ADDRESS).addParamNameToArray("_value");
+        LDecoder.FunctionParamsValue memory _keyParam=IDecoder(DECODER_ADDRESS).PackageParamString(_key);
+        LDecoder.FunctionParamsValue memory _valueParam=IDecoder(DECODER_ADDRESS).PackageParamUint(_value);
+        IDecoder(DECODER_ADDRESS).setParam("_key",_keyParam);
+        IDecoder(DECODER_ADDRESS).setParam("_value",_valueParam);
+        IDecoder(DECODER_ADDRESS).addParamNameToArray("_key");
+        IDecoder(DECODER_ADDRESS).addParamNameToArray("_value");
         
         // function setTransaction(address msgSender,address txOrigin,bytes4 msgSig,uint msgValue,string memory funName) external;
         string memory name="SetUint256Param(string,uint256)";
-        ITxDecoder(DECODER_ADDRESS).setTransaction(msgSender,tx.origin,msgSig,msgValue,name);
+        IDecoder(DECODER_ADDRESS).setTransaction(msgSender,tx.origin,msgSig,msgValue,name);
         
         //=============================
         //active FireWallProcess:

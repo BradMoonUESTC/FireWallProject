@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: MIT
-/// @title LTxRawAndRouter -- LTxRawAndRouter
+/// @title LRawAndRouter -- LRawAndRouter
 /// @author BloodMoon - <nerbonic@gmail.com>
 /// @version 0.0.1
 pragma solidity ^0.8.0;
 pragma experimental ABIEncoderV2;
-import {LTxDecoder} from "./LTxDecoder.sol";
-library LTxRawAndRouter{
+import {LDecoder} from "./LDecoder.sol";
+library LRawAndRouter{
 
     // struct Transaction {
     //     address msgSender;
@@ -24,7 +24,7 @@ library LTxRawAndRouter{
         address txOrigin;
         RawChoice choice;
     }
-    
+
     struct RouteTable {
         bytes4 msgSig;
         string funName;
@@ -38,14 +38,18 @@ library LTxRawAndRouter{
         string funName;
         address msgSender;
         address txOrigin;
-        
+
         address[] relayModules;
-        
-        
+
+
     }
+
+    //=====================event======================
+    //TODO: add event list
+
     //TODO: every OP Table function need to recheck and optimize the code
     //=====================OP RawTable======================
-    function checkTransactionIfMatchBasedRawTable(LTxDecoder.Transaction memory tx,RawTable[] memory tables) external returns(bool,RawChoice){
+    function checkTransactionIfMatchBasedRawTable(LDecoder.Transaction memory tx,RawTable[] memory tables) external returns(bool,RawChoice){
         for(uint i=0;i<tables.length;i++){
             RawTable memory table=tables[i];
             if((tx.msgSig==table.msgSig||hashCompareInternal(tx.funName,table.funName))){
@@ -62,13 +66,13 @@ library LTxRawAndRouter{
         }
         return (true,RawChoice.UNKNOWN);
     }
-    
+
     function addRawTable(RawTable[] storage tables,bytes4 msgSig,string memory funName,address msgSender,address txOrigin,RawChoice choice) external returns(RawTable[] storage){
         RawTable memory table=RawTable(msgSig,funName,msgSender,txOrigin,choice);
         tables.push(table);
         return tables;
     }
-    
+
     function modifyRawTable(uint index,RawTable[] storage tables,bytes4 newMsgSig,string memory newFunName,address newMsgSender,address newTxOrigin,RawChoice choice) external returns (RawTable[] storage) {
         if(newMsgSig!=0x000000){
             tables[index].msgSig=newMsgSig;
@@ -79,17 +83,17 @@ library LTxRawAndRouter{
     //delete RawTable at index
     function removeRawTablesAtIndex(uint index,RawTable[] storage tables) external returns (RawTable[] storage) {
         if (index >= tables.length) return tables;
-     
+
         for (uint i = index; i < tables.length-1; i++) {
-          tables[i] = tables[i+1];
+            tables[i] = tables[i+1];
         }
-     
+
         delete tables[tables.length-1];
         return tables;
     }
-    
+
     //=====================OP RouteTable======================
-    function checkTransactionIfMatchBasedRouteTable(LTxDecoder.Transaction memory tx,RouteTable[] memory tables) external returns(bool,RouteChoice){
+    function checkTransactionIfMatchBasedRouteTable(LDecoder.Transaction memory tx,RouteTable[] memory tables) external returns(bool,RouteChoice){
         for(uint i=0;i<tables.length;i++){
             RouteTable memory table=tables[i];
             if((tx.msgSig==table.msgSig||hashCompareInternal(tx.funName,table.funName))){
@@ -109,16 +113,16 @@ library LTxRawAndRouter{
     //delete RouteTable at index
     function removRouteTablesAtIndex(uint index,RouteTable[] storage tables) external returns (RouteTable[] storage) {
         if (index >= tables.length) return tables;
-     
+
         for (uint i = index; i < tables.length-1; i++) {
-          tables[i] = tables[i+1];
+            tables[i] = tables[i+1];
         }
-     
+
         delete tables[tables.length-1];
         return tables;
     }
     //=====================OP RelayTable======================
-    function checkTransactionIfMatchBasedRelayTable(LTxDecoder.Transaction memory tx,RelayTable[] memory tables) external returns(bool,address[] memory){
+    function checkTransactionIfMatchBasedRelayTable(LDecoder.Transaction memory tx,RelayTable[] memory tables) external returns(bool,address[] memory){
         for(uint i=0;i<tables.length;i++){
             RelayTable memory table=tables[i];
             if((tx.msgSig==table.msgSig||hashCompareInternal(tx.funName,table.funName))){
@@ -140,11 +144,11 @@ library LTxRawAndRouter{
     //delete RouteTable at index
     function removRelayTablesAtIndex(uint index,RelayTable[] storage tables) external returns (RelayTable[] storage) {
         if (index >= tables.length) return tables;
-     
+
         for (uint i = index; i < tables.length-1; i++) {
-          tables[i] = tables[i+1];
+            tables[i] = tables[i+1];
         }
-     
+
         delete tables[tables.length-1];
         return tables;
     }

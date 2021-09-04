@@ -1,24 +1,24 @@
 // SPDX-License-Identifier: MIT
-/// @title LTxFilterProcess -- LTxFilterProcess
+/// @title LFilterProcess -- LFilterProcess
 /// @author BloodMoon - <nerbonic@gmail.com>
 /// @version 0.0.1
 pragma solidity ^0.8.0;
 pragma experimental ABIEncoderV2;
-import {LTxDecoder} from "./LTxDecoder.sol";
-import {ITxDecoder} from "./ITxDecoder.sol";
-library LTxFilterProcess {
-    
+import {LDecoder} from "./LDecoder.sol";
+import {IDecoder} from "./IDecoder.sol";
+library LFilterProcess {
+
     //=====================enum========================
     enum ModuleType { DataAggregator,DataPattern,RiskEstimate,UNKNOWN }
     enum ModuleStatus { Enable,Disable }
     enum StrategyStatus { Enable,Disable }
     //=====================struct======================
-    
+
     struct Module{
         uint moduleId;
-        
+
     }
-    
+
     struct ModuleRegistInfo{
         ModuleType moduleType;
         address moduleAddress;
@@ -27,7 +27,7 @@ library LTxFilterProcess {
         string moduleRegisterName;
         uint moudleId;
         ModuleStatus moduleStatus;
-        
+
     }
     struct Strategy{
         address msgSender;
@@ -35,16 +35,16 @@ library LTxFilterProcess {
         bytes4 msgSig;
         uint msgValue;
         string funName;
-        
+
         string strategyRegistName;
         string strategyRegistDate;
         string[] moduleName;
         address[] moduleAddress;
-        
+
     }
-    
-	//=====================OP Strategy======================
-    function checkTransactionIfMatchBasedStrategy(LTxDecoder.Transaction memory tx,Strategy[] memory tables) external returns(bool,address[] memory){
+
+    //=====================OP Strategy======================
+    function checkTransactionIfMatchBasedStrategy(LDecoder.Transaction memory tx,Strategy[] memory tables) external returns(bool,address[] memory){
         for(uint i=0;i<tables.length;i++){
             Strategy memory table=tables[i];
             if((tx.msgSig==table.msgSig||hashCompareInternal(tx.funName,table.funName))){
@@ -63,19 +63,19 @@ library LTxFilterProcess {
     //delete RouteTable at index
     function removStrategyAtIndex(uint index,Strategy[] storage tables) external returns (Strategy[] storage) {
         if (index >= tables.length) return tables;
-     
+
         for (uint i = index; i < tables.length-1; i++) {
-          tables[i] = tables[i+1];
+            tables[i] = tables[i+1];
         }
-     
+
         delete tables[tables.length-1];
         return tables;
     }
-	//=====================event======================
-	//TODO: add event list
-	//=====================tool function======================
-	function hashCompareInternal(string memory a, string memory b) internal returns (bool) {
+    //=====================event======================
+    //TODO: add event list
+    //=====================tool function======================
+    function hashCompareInternal(string memory a, string memory b) internal returns (bool) {
         return keccak256(abi.encodePacked(a)) == keccak256(abi.encodePacked(b));
     }
-    
+
 }

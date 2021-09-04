@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: MIT
-/// @title LTxDecoder -- LTxDecoder
+/// @title LDecoder -- LDecoder
 /// @author BloodMoon - <nerbonic@gmail.com>
 /// @version 0.0.1
 pragma solidity ^0.8.0;
 pragma experimental ABIEncoderV2;
 
-library LTxDecoder{
+library LDecoder{
 
     //=====================struct======================
     struct Transaction {
