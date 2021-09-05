@@ -71,7 +71,9 @@ contract RawAndRouter{
         if(routeChoice==LRawAndRouter.RouteChoice.FilterNotRelay){
             IFilterProcess(FILTER_ADDRESS).activeFilterProcess();
         }
-        if(routeChoice==LRawAndRouter.RouteChoice.UNKNOWN){}
+        if(routeChoice==LRawAndRouter.RouteChoice.UNKNOWN){
+            return true;
+        }
         
     }
 
