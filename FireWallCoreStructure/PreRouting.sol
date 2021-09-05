@@ -5,14 +5,20 @@
 pragma solidity ^0.8.0;
 import {LDecoder} from "./LDecoder.sol";
 import {IDecoder} from "./IDecoder.sol";
+import {IRawAndRouter} from "./IRawAndRouter.sol";
 contract PreRouting{
     
     address DECODER_ADDRESS;
-    function Initialize(address DecoderAddress) external{
+    address RAWANDROUTER_ADDRESS;
+    function Initialize(address DecoderAddress,address RawAndRouterAddress) external{
         DECODER_ADDRESS=DecoderAddress;
+        RAWANDROUTER_ADDRESS=RawAndRouterAddress;
     }
     
-    function SetUint256Param(string memory _key,uint256 _value,address msgSender,uint256 msgValue,bytes4 msgSig) external{
+    //=====================event======================
+	//TODO: add event list
+    
+    function SetUint256Param(string memory _key,uint256 _value,address msgSender,uint256 msgValue,bytes4 msgSig) external returns(bool){
         
         //=============================
         //package Process:
@@ -25,13 +31,13 @@ contract PreRouting{
         IDecoder(DECODER_ADDRESS).addParamNameToArray("_key");
         IDecoder(DECODER_ADDRESS).addParamNameToArray("_value");
         
-        // function setTransaction(address msgSender,address txOrigin,bytes4 msgSig,uint msgValue,string memory funName) external;
-        string memory name="SetUint256Param(string,uint256)";
-        IDecoder(DECODER_ADDRESS).setTransaction(msgSender,tx.origin,msgSig,msgValue,name);
-        
         //=============================
         //active FireWallProcess:
         //=============================
+        // function setTransaction(address msgSender,address txOrigin,bytes4 msgSig,uint msgValue,string memory funName) external;
+        string memory name="SetUint256Param(string,uint256)";
+        IDecoder(DECODER_ADDRESS).setTransaction(msgSender,tx.origin,msgSig,msgValue,name);
+        return IRawAndRouter(RAWANDROUTER_ADDRESS).activeFireWall();
     }
     
     

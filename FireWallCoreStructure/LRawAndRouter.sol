@@ -24,7 +24,7 @@ library LRawAndRouter{
         address txOrigin;
         RawChoice choice;
     }
-
+    
     struct RouteTable {
         bytes4 msgSig;
         string funName;
@@ -38,15 +38,15 @@ library LRawAndRouter{
         string funName;
         address msgSender;
         address txOrigin;
-
+        
         address[] relayModules;
-
-
+        
+        
     }
-
+    
     //=====================event======================
-    //TODO: add event list
-
+	//TODO: add event list
+    
     //TODO: every OP Table function need to recheck and optimize the code
     //=====================OP RawTable======================
     function checkTransactionIfMatchBasedRawTable(LDecoder.Transaction memory tx,RawTable[] memory tables) external returns(bool,RawChoice){
@@ -66,13 +66,13 @@ library LRawAndRouter{
         }
         return (true,RawChoice.UNKNOWN);
     }
-
+    
     function addRawTable(RawTable[] storage tables,bytes4 msgSig,string memory funName,address msgSender,address txOrigin,RawChoice choice) external returns(RawTable[] storage){
         RawTable memory table=RawTable(msgSig,funName,msgSender,txOrigin,choice);
         tables.push(table);
         return tables;
     }
-
+    
     function modifyRawTable(uint index,RawTable[] storage tables,bytes4 newMsgSig,string memory newFunName,address newMsgSender,address newTxOrigin,RawChoice choice) external returns (RawTable[] storage) {
         if(newMsgSig!=0x000000){
             tables[index].msgSig=newMsgSig;
@@ -83,15 +83,15 @@ library LRawAndRouter{
     //delete RawTable at index
     function removeRawTablesAtIndex(uint index,RawTable[] storage tables) external returns (RawTable[] storage) {
         if (index >= tables.length) return tables;
-
+     
         for (uint i = index; i < tables.length-1; i++) {
-            tables[i] = tables[i+1];
+          tables[i] = tables[i+1];
         }
-
+     
         delete tables[tables.length-1];
         return tables;
     }
-
+    
     //=====================OP RouteTable======================
     function checkTransactionIfMatchBasedRouteTable(LDecoder.Transaction memory tx,RouteTable[] memory tables) external returns(bool,RouteChoice){
         for(uint i=0;i<tables.length;i++){
@@ -113,11 +113,11 @@ library LRawAndRouter{
     //delete RouteTable at index
     function removRouteTablesAtIndex(uint index,RouteTable[] storage tables) external returns (RouteTable[] storage) {
         if (index >= tables.length) return tables;
-
+     
         for (uint i = index; i < tables.length-1; i++) {
-            tables[i] = tables[i+1];
+          tables[i] = tables[i+1];
         }
-
+     
         delete tables[tables.length-1];
         return tables;
     }
@@ -144,11 +144,11 @@ library LRawAndRouter{
     //delete RouteTable at index
     function removRelayTablesAtIndex(uint index,RelayTable[] storage tables) external returns (RelayTable[] storage) {
         if (index >= tables.length) return tables;
-
+     
         for (uint i = index; i < tables.length-1; i++) {
-            tables[i] = tables[i+1];
+          tables[i] = tables[i+1];
         }
-
+     
         delete tables[tables.length-1];
         return tables;
     }

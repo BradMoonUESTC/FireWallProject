@@ -7,18 +7,13 @@ pragma experimental ABIEncoderV2;
 import {LDecoder} from "./LDecoder.sol";
 import {IDecoder} from "./IDecoder.sol";
 library LFilterProcess {
-
+    
     //=====================enum========================
-    enum ModuleType { DataAggregator,DataPattern,RiskEstimate,UNKNOWN }
+    enum ModuleType { commonDataAggregator,commonDataPattern,commonRiskEstimate,DataAggregator,DataPattern,RiskEstimate,UNKNOWN }
     enum ModuleStatus { Enable,Disable }
     enum StrategyStatus { Enable,Disable }
     //=====================struct======================
-
-    struct Module{
-        uint moduleId;
-
-    }
-
+    
     struct ModuleRegistInfo{
         ModuleType moduleType;
         address moduleAddress;
@@ -27,7 +22,7 @@ library LFilterProcess {
         string moduleRegisterName;
         uint moudleId;
         ModuleStatus moduleStatus;
-
+        uint defaultWeight;
     }
     struct Strategy{
         address msgSender;
@@ -35,25 +30,32 @@ library LFilterProcess {
         bytes4 msgSig;
         uint msgValue;
         string funName;
-
+        
+        StrategyStatus status;
         string strategyRegistName;
         string strategyRegistDate;
-        string[] moduleName;
-        address[] moduleAddress;
-
+        uint[] mouleId;
+        uint[] weight;
     }
-
-    //=====================OP Strategy======================
+    
+	//=====================OP Strategy======================
     function checkTransactionIfMatchBasedStrategy(LDecoder.Transaction memory tx,Strategy[] memory tables) external returns(bool,address[] memory){
         for(uint i=0;i<tables.length;i++){
             Strategy memory table=tables[i];
+            if(!(table.status==StrategyStatus.Enable))continue;
             if((tx.msgSig==table.msgSig||hashCompareInternal(tx.funName,table.funName))){
                 if(tx.msgSender==table.msgSender||tx.txOrigin==table.txOrigin){
-                    return (true,table.moduleAddress);
+                    uint[] memory moduleId=table.mouleId;
+                    uint[] memory weight=table.weight;
+                    return(true,getModuleAddressArrayBasedWeight(moduleId,weight));
                     //TODO: this check need to LOOK BACK
                 }
             }
         }
+    }
+    function getModuleAddressArrayBasedWeight(uint[] memory moduleId,uint[] memory weight) private returns(address[] memory){
+        //TODO:add sort code
+        
     }
     function addStrategy(Strategy[] storage tables,Strategy memory table) external returns(Strategy[] storage){
         tables.push(table);
@@ -63,19 +65,19 @@ library LFilterProcess {
     //delete RouteTable at index
     function removStrategyAtIndex(uint index,Strategy[] storage tables) external returns (Strategy[] storage) {
         if (index >= tables.length) return tables;
-
+     
         for (uint i = index; i < tables.length-1; i++) {
-            tables[i] = tables[i+1];
+          tables[i] = tables[i+1];
         }
-
+     
         delete tables[tables.length-1];
         return tables;
     }
-    //=====================event======================
-    //TODO: add event list
-    //=====================tool function======================
-    function hashCompareInternal(string memory a, string memory b) internal returns (bool) {
+	//=====================event======================
+	//TODO: add event list
+	//=====================tool function======================
+	function hashCompareInternal(string memory a, string memory b) internal returns (bool) {
         return keccak256(abi.encodePacked(a)) == keccak256(abi.encodePacked(b));
     }
-
+    
 }

@@ -24,9 +24,9 @@ contract RawAndRouter{
     mapping(string=>LDecoder.FunctionParamsValue) params;//all param mapping
     LDecoder.Transaction transaction;
 
-    //=====================event======================
-    //TODO: add event list
-
+	//=====================event======================
+	//TODO: add event list
+	
 
     //================Initializer================
     address DECODER_ADDRESS;
@@ -38,12 +38,12 @@ contract RawAndRouter{
     //================startFireWall================
     function activeFireWall() external returns(bool){
         //TODO:this active function logic need to look back
-
+        
         //**********Initialize the latest trasaction and param Data**********
         transaction=IDecoder(DECODER_ADDRESS).getTransaction();
         string[] memory allParamsName=IDecoder(DECODER_ADDRESS).getAllParamName();
         packageParams(allParamsName);
-
+        
         //**********Raw Process**********
         //enum RawChoice { banned,letThrough,UNKNOWN}
         bool rslt=true;
@@ -71,7 +71,7 @@ contract RawAndRouter{
             IFilterProcess(FILTER_ADDRESS).activeFilterProcess();
         }
         if(routeChoice==LRawAndRouter.RouteChoice.UNKNOWN){}
-
+        
     }
 
     function doRelay(address[] memory relayModules) internal {
