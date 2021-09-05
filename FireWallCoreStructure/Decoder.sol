@@ -38,7 +38,7 @@ contract Decoder{
     function setParam(string memory paramsName,LDecoder.FunctionParamsValue memory param) external {
         params[paramsName]=param;
     }
-    function getParam(string memory paramsName) external returns(LDecoder.FunctionParamsValue memory param){
+    function getParam(string memory paramsName) external view returns(LDecoder.FunctionParamsValue memory param){
         return params[paramsName];
     }
     
@@ -49,13 +49,13 @@ contract Decoder{
         transaction.msgValue=msgValue;
         transaction.funName=funName;
     }
-    function getTransaction() external returns(LDecoder.Transaction memory) {
+    function getTransaction() external view returns(LDecoder.Transaction memory) {
         return transaction;
     }
     function addParamNameToArray(string memory newName) external{
         allParamName.push(newName);
     }
-    function getAllParamName() external returns(string[] memory){
+    function getAllParamName() external view returns(string[] memory){
         return allParamName;
     }
     
@@ -116,7 +116,7 @@ contract Decoder{
     function PackageParamBoolArray(bool[] memory boolArrayParamValue) external returns(LDecoder.FunctionParamsValue memory){
         return PackageParam("boolArray",DEFAULT_string,DEFAULT_uint,DEFAULT_address,DEFAULT_bool,DEFAULT_stringArrray,DEFAULT_uintArray,DEFAULT_addressArray,boolArrayParamValue);
     }
-    function hashCompareInternal(string memory a, string memory b) internal returns (bool) {
+    function hashCompareInternal(string memory a, string memory b) internal pure returns (bool) {
         return keccak256(abi.encodePacked(a)) == keccak256(abi.encodePacked(b));
     }
     

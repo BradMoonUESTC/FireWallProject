@@ -12,6 +12,7 @@ library LFilterProcess {
     enum ModuleType { commonDataAggregator,commonDataPattern,commonRiskEstimate,DataAggregator,DataPattern,RiskEstimate,UNKNOWN }
     enum ModuleStatus { Enable,Disable }
     enum StrategyStatus { Enable,Disable }
+    enum FilterResult { Danger,Safe,MediumRisk,HighRisk,LowRisk}
     //=====================struct======================
     
     struct ModuleRegistInfo{
@@ -76,7 +77,7 @@ library LFilterProcess {
 	//=====================event======================
 	//TODO: add event list
 	//=====================tool function======================
-	function hashCompareInternal(string memory a, string memory b) internal returns (bool) {
+	function hashCompareInternal(string memory a, string memory b) internal pure returns (bool) {
         return keccak256(abi.encodePacked(a)) == keccak256(abi.encodePacked(b));
     }
     

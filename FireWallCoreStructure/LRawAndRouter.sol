@@ -49,7 +49,7 @@ library LRawAndRouter{
     
     //TODO: every OP Table function need to recheck and optimize the code
     //=====================OP RawTable======================
-    function checkTransactionIfMatchBasedRawTable(LDecoder.Transaction memory tx,RawTable[] memory tables) external returns(bool,RawChoice){
+    function checkTransactionIfMatchBasedRawTable(LDecoder.Transaction memory tx,RawTable[] memory tables) external pure returns(bool,RawChoice){
         for(uint i=0;i<tables.length;i++){
             RawTable memory table=tables[i];
             if((tx.msgSig==table.msgSig||hashCompareInternal(tx.funName,table.funName))){
@@ -93,7 +93,7 @@ library LRawAndRouter{
     }
     
     //=====================OP RouteTable======================
-    function checkTransactionIfMatchBasedRouteTable(LDecoder.Transaction memory tx,RouteTable[] memory tables) external returns(bool,RouteChoice){
+    function checkTransactionIfMatchBasedRouteTable(LDecoder.Transaction memory tx,RouteTable[] memory tables) external pure returns(bool,RouteChoice){
         for(uint i=0;i<tables.length;i++){
             RouteTable memory table=tables[i];
             if((tx.msgSig==table.msgSig||hashCompareInternal(tx.funName,table.funName))){
@@ -122,7 +122,7 @@ library LRawAndRouter{
         return tables;
     }
     //=====================OP RelayTable======================
-    function checkTransactionIfMatchBasedRelayTable(LDecoder.Transaction memory tx,RelayTable[] memory tables) external returns(bool,address[] memory){
+    function checkTransactionIfMatchBasedRelayTable(LDecoder.Transaction memory tx,RelayTable[] memory tables) external pure returns(bool,address[] memory){
         for(uint i=0;i<tables.length;i++){
             RelayTable memory table=tables[i];
             if((tx.msgSig==table.msgSig||hashCompareInternal(tx.funName,table.funName))){
@@ -153,7 +153,7 @@ library LRawAndRouter{
         return tables;
     }
     //=====================tool function======================
-    function hashCompareInternal(string memory a, string memory b) internal returns (bool) {
+    function hashCompareInternal(string memory a, string memory b) internal pure returns (bool) {
         return keccak256(abi.encodePacked(a)) == keccak256(abi.encodePacked(b));
     }
 

@@ -77,9 +77,9 @@ contract RawAndRouter{
         
     }
 
-    function doRelay(address[] memory relayModules) internal {
-        for(uint i=0;i<relayModules.length;i++){
-            IRelayModule(relayModules[i]).activeRelayModule();
+    function doRelay(address[] memory _relayModules) internal {
+        for(uint i=0;i<_relayModules.length;i++){
+            IRelayModule(_relayModules[i]).activeRelayModule();
         }
 
     }
@@ -90,8 +90,8 @@ contract RawAndRouter{
         routeTables=LRawAndRouter.addRouteTable(routeTables,msgSig,funName,msgSender,Origin,choice);
     }
     // addRelayTable(RelayTable[] storage tables,bytes4 msgSig,string memory funName,address msgSender,address Origin,address[] memory relayModules)
-    function addRouteTable(bytes4 msgSig,string memory funName,address msgSender,address Origin,address[] memory relayModules) external {
-        relayTables=LRawAndRouter.addRelayTable(relayTables,msgSig,funName,msgSender,Origin,relayModules);
+    function addRouteTable(bytes4 msgSig,string memory funName,address msgSender,address Origin,address[] memory _relayModules) external {
+        relayTables=LRawAndRouter.addRelayTable(relayTables,msgSig,funName,msgSender,Origin,_relayModules);
     }
     //================tool Function=====================
     //Params Package
