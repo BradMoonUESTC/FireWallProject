@@ -5,7 +5,8 @@
 pragma solidity ^0.8.0;
 pragma experimental ABIEncoderV2;
 import {LDecoder} from "./LDecoder.sol";
-contract Decoder{
+import "./StringTool.sol";
+contract Decoder is StringTool{
 
     //=================Default Data=====================
     string constant DEFAULT_string ="";
@@ -116,9 +117,6 @@ contract Decoder{
     }
     function PackageParamBoolArray(bool[] memory boolArrayParamValue) external returns(LDecoder.FunctionParamsValue memory){
         return PackageParam("boolArray",DEFAULT_string,DEFAULT_uint,DEFAULT_address,DEFAULT_bool,DEFAULT_stringArrray,DEFAULT_uintArray,DEFAULT_addressArray,boolArrayParamValue);
-    }
-    function hashCompareInternal(string memory a, string memory b) internal pure returns (bool) {
-        return keccak256(abi.encodePacked(a)) == keccak256(abi.encodePacked(b));
     }
     
 }
