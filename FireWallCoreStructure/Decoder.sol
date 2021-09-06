@@ -71,7 +71,7 @@ contract Decoder{
         uint256[] memory uintArrayParamValue,
         address[] memory addressArrayParamValue,
         bool[] memory boolArrayParamValue) private returns(LDecoder.FunctionParamsValue memory){
-            LDecoder.FunctionParamsValue memory params=LDecoder.FunctionParamsValue(
+            LDecoder.FunctionParamsValue memory functionParamsValue=LDecoder.FunctionParamsValue(
                 paramType,
                 DEFAULT_string,
                 DEFAULT_uint,
@@ -82,15 +82,16 @@ contract Decoder{
                 DEFAULT_addressArray,
                 DEFAULT_boolArray
                 );
-            if(hashCompareInternal(paramType,"string")){params.stringParamValue=stringParamValue;return params;}
-            if(hashCompareInternal(paramType,"uint")){params.uintParamValue=uintParamValue;return params;}
-            if(hashCompareInternal(paramType,"address")){params.addressParamValue=addressParamValue;return params;}
-            if(hashCompareInternal(paramType,"bool")){params.boolParamValue=boolParamValue;return params;}
+            if(hashCompareInternal(paramType,"string")){functionParamsValue.stringParamValue=stringParamValue;}
+            if(hashCompareInternal(paramType,"uint")){functionParamsValue.uintParamValue=uintParamValue;}
+            if(hashCompareInternal(paramType,"address")){functionParamsValue.addressParamValue=addressParamValue;}
+            if(hashCompareInternal(paramType,"bool")){functionParamsValue.boolParamValue=boolParamValue;}
             
-            if(hashCompareInternal(paramType,"stringArrray")){params.stringArrrayParamValue=stringArrrayParamValue;return params;}
-            if(hashCompareInternal(paramType,"uintArray")){params.uintArrayParamValue=uintArrayParamValue;return params;}
-            if(hashCompareInternal(paramType,"addressArray")){params.addressArrayParamValue=addressArrayParamValue;return params;}
-            if(hashCompareInternal(paramType,"boolArray")){params.boolArrayParamValue=boolArrayParamValue;return params;}
+            if(hashCompareInternal(paramType,"stringArrray")){functionParamsValue.stringArrrayParamValue=stringArrrayParamValue;}
+            if(hashCompareInternal(paramType,"uintArray")){functionParamsValue.uintArrayParamValue=uintArrayParamValue;}
+            if(hashCompareInternal(paramType,"addressArray")){functionParamsValue.addressArrayParamValue=addressArrayParamValue;}
+            if(hashCompareInternal(paramType,"boolArray")){functionParamsValue.boolArrayParamValue=boolArrayParamValue;}
+            return functionParamsValue;
     }
     function PackageParamString(string memory stringParamValue) external returns(LDecoder.FunctionParamsValue memory){
         return PackageParam("string",stringParamValue,DEFAULT_uint,DEFAULT_address,DEFAULT_bool,DEFAULT_stringArrray,DEFAULT_uintArray,DEFAULT_addressArray,DEFAULT_boolArray);

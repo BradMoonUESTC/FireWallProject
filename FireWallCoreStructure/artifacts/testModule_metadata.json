@@ -1,0 +1,138 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "DecoderAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "FilterAddress",
+						"type": "address"
+					}
+				],
+				"name": "Initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "activeFilterModule",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string[]",
+						"name": "allParamsName",
+						"type": "string[]"
+					}
+				],
+				"name": "packageParams",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"FireWallCoreStructure/testModule.sol": "testModule"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"FireWallCoreStructure/IDecoder.sol": {
+			"keccak256": "0x010df2ffa2fd4ef6784d867c2730b2cd216a9024883b8ff78192d6b0e1dd7d7a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9a418097e90760e8d877e8d1f202b41dbe5cf1a2900a3bcee1cedc63454aa896",
+				"dweb:/ipfs/QmfUDHz7DmC8b246hFWstidaogA2h91Gnk3RFVP9wcCAfr"
+			]
+		},
+		"FireWallCoreStructure/IFilterProcess.sol": {
+			"keccak256": "0xfc55024ae48a6470da65604ed4c4b169871d7541e2f4c24c1cfb5e0d41a854f9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d112660159735a03a47ce3a6b448b25ff4b78695523b8b206ce7f85b8209514f",
+				"dweb:/ipfs/QmTasqP2jF1TujmuSo6eKK93BAUYXTKV22e4MHYNbDdwPt"
+			]
+		},
+		"FireWallCoreStructure/IRelayModule.sol": {
+			"keccak256": "0x5de0168fa397a7fd2bc881e8ea327ea4c0ab80837ed41358af9d2a37603b580d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c36400f8d232e7ccb17177a26620a02e66512a6639267888aa9c5b7a9a62d5d2",
+				"dweb:/ipfs/QmYHnZWPaUKjfrkLJ3T4NGzxwnaWvPrmmJP1N3tmKGsjMJ"
+			]
+		},
+		"FireWallCoreStructure/LDecoder.sol": {
+			"keccak256": "0x87e7ac1b4182e409781cd8b62311c0b9a9c27dea71c0c3f7bb85d10f08f978d2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c0370584cc6c6a9651c2e9b5926520c1b30a39b670e3e17bbd701375ce3acde2",
+				"dweb:/ipfs/QmbxPLYcBAyqj6jaacePeZfNUNJLVH6U2WGuK5fjdpBz2B"
+			]
+		},
+		"FireWallCoreStructure/LRawAndRouter.sol": {
+			"keccak256": "0xd5bb2b74f37e3e9d05cd58014287a94a1187c062f127ea6fee25bc428ab82b49",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d117760d9bc0d39b4e37f16ddb444b8c13edbf11a865570d3bd797ffa5d0829b",
+				"dweb:/ipfs/QmebCzvXaQBnKKHJ6ZgyA41UfigHH7f2fQfqgkbtmz23DK"
+			]
+		},
+		"FireWallCoreStructure/StringTool.sol": {
+			"keccak256": "0xda4d734c6ada18b19e762fd22cc22a6c6ea2f6618766f2a17c249fef9d1d74c4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3eff7e2d9bc391b15c090a333a1b69b235e0099163e93d0c333caa615d2ca2f8",
+				"dweb:/ipfs/QmaYN25uwGiktaDwaRtmSuQ9RQCdhFgkErEtJFqA1MQVg7"
+			]
+		},
+		"FireWallCoreStructure/testModule.sol": {
+			"keccak256": "0x5366ded592667dd2e7e8b7d9d33c0992be224f69e5c123dfae40e4d98f58d5d8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://42ccc18913db8650d8a8b962f99fd6811b620bdb53b22f99f851bafad68acd86",
+				"dweb:/ipfs/QmQPxJSNAxumuw6DDMbZ77LVLJN6BVdHqrfSWriNocVekR"
+			]
+		}
+	},
+	"version": 1
+}

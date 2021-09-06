@@ -1,0 +1,303 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "msgSender",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "txOrigin",
+								"type": "address"
+							},
+							{
+								"internalType": "bytes4",
+								"name": "msgSig",
+								"type": "bytes4"
+							},
+							{
+								"internalType": "uint256",
+								"name": "msgValue",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "funName",
+								"type": "string"
+							}
+						],
+						"internalType": "struct LDecoder.Transaction",
+						"name": "tx",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "bytes4",
+								"name": "msgSig",
+								"type": "bytes4"
+							},
+							{
+								"internalType": "string",
+								"name": "funName",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "msgSender",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "txOrigin",
+								"type": "address"
+							},
+							{
+								"internalType": "enum LRawAndRouter.RawChoice",
+								"name": "choice",
+								"type": "LRawAndRouter.RawChoice"
+							}
+						],
+						"internalType": "struct LRawAndRouter.RawTable[]",
+						"name": "tables",
+						"type": "tuple[]"
+					}
+				],
+				"name": "checkTransactionIfMatchBasedRawTable",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					},
+					{
+						"internalType": "enum LRawAndRouter.RawChoice",
+						"name": "",
+						"type": "LRawAndRouter.RawChoice"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "msgSender",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "txOrigin",
+								"type": "address"
+							},
+							{
+								"internalType": "bytes4",
+								"name": "msgSig",
+								"type": "bytes4"
+							},
+							{
+								"internalType": "uint256",
+								"name": "msgValue",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "funName",
+								"type": "string"
+							}
+						],
+						"internalType": "struct LDecoder.Transaction",
+						"name": "tx",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "bytes4",
+								"name": "msgSig",
+								"type": "bytes4"
+							},
+							{
+								"internalType": "string",
+								"name": "funName",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "msgSender",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "txOrigin",
+								"type": "address"
+							},
+							{
+								"internalType": "address[]",
+								"name": "relayModules",
+								"type": "address[]"
+							}
+						],
+						"internalType": "struct LRawAndRouter.RelayTable[]",
+						"name": "tables",
+						"type": "tuple[]"
+					}
+				],
+				"name": "checkTransactionIfMatchBasedRelayTable",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					},
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "msgSender",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "txOrigin",
+								"type": "address"
+							},
+							{
+								"internalType": "bytes4",
+								"name": "msgSig",
+								"type": "bytes4"
+							},
+							{
+								"internalType": "uint256",
+								"name": "msgValue",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "funName",
+								"type": "string"
+							}
+						],
+						"internalType": "struct LDecoder.Transaction",
+						"name": "tx",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "bytes4",
+								"name": "msgSig",
+								"type": "bytes4"
+							},
+							{
+								"internalType": "string",
+								"name": "funName",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "msgSender",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "txOrigin",
+								"type": "address"
+							},
+							{
+								"internalType": "enum LRawAndRouter.RouteChoice",
+								"name": "choice",
+								"type": "LRawAndRouter.RouteChoice"
+							}
+						],
+						"internalType": "struct LRawAndRouter.RouteTable[]",
+						"name": "tables",
+						"type": "tuple[]"
+					}
+				],
+				"name": "checkTransactionIfMatchBasedRouteTable",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					},
+					{
+						"internalType": "enum LRawAndRouter.RouteChoice",
+						"name": "",
+						"type": "LRawAndRouter.RouteChoice"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"FireWallCoreStructure/LRawAndRouter.sol": "LRawAndRouter"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"FireWallCoreStructure/LDecoder.sol": {
+			"keccak256": "0x87e7ac1b4182e409781cd8b62311c0b9a9c27dea71c0c3f7bb85d10f08f978d2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c0370584cc6c6a9651c2e9b5926520c1b30a39b670e3e17bbd701375ce3acde2",
+				"dweb:/ipfs/QmbxPLYcBAyqj6jaacePeZfNUNJLVH6U2WGuK5fjdpBz2B"
+			]
+		},
+		"FireWallCoreStructure/LRawAndRouter.sol": {
+			"keccak256": "0xd5bb2b74f37e3e9d05cd58014287a94a1187c062f127ea6fee25bc428ab82b49",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d117760d9bc0d39b4e37f16ddb444b8c13edbf11a865570d3bd797ffa5d0829b",
+				"dweb:/ipfs/QmebCzvXaQBnKKHJ6ZgyA41UfigHH7f2fQfqgkbtmz23DK"
+			]
+		}
+	},
+	"version": 1
+}

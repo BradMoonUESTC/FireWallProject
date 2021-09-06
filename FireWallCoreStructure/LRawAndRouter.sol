@@ -141,7 +141,7 @@ library LRawAndRouter{
         tables.push(table);
         return tables;
     }
-    //delete RouteTable at index
+    //delete RelayTable at index
     function removRelayTablesAtIndex(uint index,RelayTable[] storage tables) external returns (RelayTable[] storage) {
         if (index >= tables.length) return tables;
      
