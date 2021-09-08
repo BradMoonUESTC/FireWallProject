@@ -20,13 +20,14 @@ contract DataCenter{
 
     //================Project Address================
     address PancakeFACTORY;
+    address DECODER;
     mapping(string=>address) OracleAddress;
     mapping(string=>address) DEXAddress;
     mapping(string=>address) YieldAggregatorAddress;
     
     
     
-    //================Token Address================
+    //================TokenAndPair Address================
     mapping(string=>address) TokenAddress;
     
     mapping(string=>address) PairAddress;
@@ -42,8 +43,9 @@ contract DataCenter{
     }
     
     //================Initializer================
-    function Initialize(address _FACTORY) external{
+    function Initialize(address _FACTORY,address decoder) external{
         PancakeFACTORY=_FACTORY;
+        DECODER=decoder;
     }
     
     //================Op Price================
@@ -51,7 +53,7 @@ contract DataCenter{
         
         address pair=IPancakeFactory(PancakeFACTORY).getPair(A,B);
         address token0=IPancakePair(pair).token0()==A?A:B;
-        address token1=IPancakePair(pair).token0()==B?B:A;
+        address token1=IPancakePair(pair).token1()==B?B:A;
         uint price=IPancakeERC20(token0).balanceOf(pair).mul(1e18).div(IPancakeERC20(token1).balanceOf(pair));
         return price;//real price*1e18
     }
@@ -82,21 +84,15 @@ contract DataCenter{
         Prices[tokenPair].push(price);
     }
     
-    //example of filter,consider move to module
-    function checkPrice(string memory tokenPair,uint threshold) external returns(bool){
-        
+    function checkPrice(string memory tokenPair,uint threshold) internal returns(bool){
         uint priceInPool=getPriceInPool(PairAddress[tokenPair]);
         uint priceInOracle=getPriceInOracle(OracleAddress[tokenPair]);
         uint priceDifference=priceInPool>priceInOracle?priceInPool.sub(priceInOracle):priceInOracle.sub(priceInPool);
         if(priceDifference.div(priceInOracle)*100*1e18>threshold*1e18){
-            //TODO: overflow the threshold
+            //TODO: over the threshold
             return false;
         }
-        return true;
-        // recordPairPrice(tokenPair);
-        // uint priceInPool=Prices[tokenPair][Prices[tokenPair].length-1].priceInPool;
-        // int256 priceInOracle=Prices[tokenPair][Prices[tokenPair].length-1].priceInOracle;
-        
+        return true; 
     }
     
     //================modify mapping================
@@ -108,6 +104,21 @@ contract DataCenter{
     }
     function modifyPairAddress(string memory tokenPair,address tokenPairAddress) external{
         PairAddress[tokenPair]=tokenPairAddress;
+    }
+    function getOracleAddress(string memory tokenPair) view external returns(address){
+        return OracleAddress[tokenPair];
+    }
+    function getTokenAddress(string memory token) view external returns(address){
+        return TokenAddress[token];
+    }
+    function getPairAddress(string memory tokenPair) view external returns(address){
+        return PairAddress[tokenPair];
+    }
+    function getAggregatorAddress(string memory aggregatorName) view external returns(address){
+        return YieldAggregatorAddress[aggregatorName];
+    }
+    function getDecoderAddress() view external returns(address){
+        return DECODER;
     }
     
 

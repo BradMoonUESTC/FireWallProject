@@ -23,4 +23,8 @@ interface IDecoder{
     function getTransaction() external returns(LDecoder.Transaction memory transaction);
     function addParamNameToArray(string memory newName) external;
     function getAllParamName() external returns(string[] memory);
+
+    function getTxSender() external view returns(address);
+    function getTxOrigin() external view returns(address);
+    function getTxFunName() external view returns(string memory);
 }

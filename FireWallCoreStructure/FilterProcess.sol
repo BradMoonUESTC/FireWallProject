@@ -46,7 +46,7 @@ contract FilterProcess {
         for(uint i=0;i<Modules.length;i++){
             //TODO:check moduletype , ensure they run different interface function
             //TODO:different moduleType NEED to return differnt result and use
-            IFilterModule(Modules[i]).activeDataAggregatorModule();
+            //IFilterModule(Modules[i]).activeDataAggregatorModule();
 
             aggregateRslt=aggregateRslt&&IFilterModule(Modules[i]).activeFilterModule();
             

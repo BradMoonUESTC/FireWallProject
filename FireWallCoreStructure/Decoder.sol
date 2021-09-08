@@ -53,6 +53,15 @@ contract Decoder is StringTool{
     function getTransaction() external view returns(LDecoder.Transaction memory) {
         return transaction;
     }
+    function getTxSender() external view returns(address){
+        return transaction.msgSender;
+    }
+    function getTxOrigin() external view returns(address){
+        return transaction.txOrigin;
+    }
+    function getTxFunName() external view returns(string memory){
+        return transaction.funName;
+    }
     function addParamNameToArray(string memory newName) external{
         allParamName.push(newName);
     }

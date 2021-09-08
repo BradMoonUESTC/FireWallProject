@@ -45,6 +45,25 @@
 			{
 				"inputs": [
 					{
+						"internalType": "string",
+						"name": "tokenPair",
+						"type": "string"
+					}
+				],
+				"name": "getOracleAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "oracleAddress",
 						"type": "address"
@@ -208,11 +227,11 @@
 			]
 		},
 		"FireWallCoreStructure/DataCenter.sol": {
-			"keccak256": "0x68df674110533d1c4703b817815a794ddc559c006d17d02b1c094e4eda4fc91c",
+			"keccak256": "0x4af946f87584a90bf4785578e15272266929976930939bda70a53ad77ae8dc78",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://981888d5371806e89e61f28fbe246fd5eb2e1d61c9350d6e2e59e0d0b961a349",
-				"dweb:/ipfs/QmXvz9Aj6HZ5vaxhRSpmANUvKx2w1nWbxwyBq7vZT2KVUj"
+				"bzz-raw://9d5caacce397759c0a6d6236c61ca748c1a5c3ec98cfe4e8b3808a127e0c2278",
+				"dweb:/ipfs/QmSYLtQiM8VPGEQotaJqEBjToxccfaaNFejB44KxZyLC71"
 			]
 		},
 		"FireWallCoreStructure/IDecoder.sol": {
