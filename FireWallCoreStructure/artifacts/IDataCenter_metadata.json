@@ -1,0 +1,134 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "tokenPair",
+						"type": "string"
+					}
+				],
+				"name": "checkPrice",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "oracleAddress",
+						"type": "address"
+					}
+				],
+				"name": "getPriceInOracle",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "A",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "B",
+						"type": "address"
+					}
+				],
+				"name": "getPriceInPool",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "pairToken",
+						"type": "address"
+					}
+				],
+				"name": "getPriceInPool",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "tokenPair",
+						"type": "string"
+					}
+				],
+				"name": "recordPairPrice",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"FireWallCoreStructure/IDataCenter.sol": "IDataCenter"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"FireWallCoreStructure/IDataCenter.sol": {
+			"keccak256": "0x9e590d6b9916b55fdfa631e058e00abf81179760606fc601229d94f4c9833349",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://69dca1de08c277c1052f5fb9ad6ab93a0cda6de66024a0d11687952501c4249b",
+				"dweb:/ipfs/QmbHur3QWhsAfqh2M2QizQBdRicg2TKja79hBCyEaKypV1"
+			]
+		}
+	},
+	"version": 1
+}
