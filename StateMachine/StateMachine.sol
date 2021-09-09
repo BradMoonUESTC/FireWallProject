@@ -60,6 +60,8 @@ abstract contract StateMachine {
     bytes32 toState;//目标状态
     address transitor;//谁来进行的状态转换
     uint256 timestamp;//转换时间（block.timestamp)
+    uint256 blockNum;//区块高度（block.number)
+    address transitorOrigin;//交易发起者，可能与transitor不同
   }
 
   // 保存历史状态数据的列表
@@ -131,11 +133,13 @@ abstract contract StateMachine {
       bytes32 fromState,
       bytes32 toState,
       address transitor,
-      uint256 timestamp
+      uint256 timestamp,
+      uint256 blockNum,
+      address transitorOrigin
     )
   {
     // require(index >= 0 && index < history.length, 'Index out of bounds');//TODO: 考虑不增加这个断言，感觉没啥用
-    return (history[index].fromState, history[index].toState, history[index].transitor, history[index].timestamp);
+    return (history[index].fromState, history[index].toState, history[index].transitor, history[index].timestamp,history[index].blockNum,history[index].transitorOrigin);
   }
 
   /**
@@ -209,7 +213,7 @@ abstract contract StateMachine {
 
     //历史状态更新
     history.push(
-      StateTransition({ fromState: oldState, toState: toState, transitor: msg.sender, timestamp: block.timestamp })
+      StateTransition({ fromState: oldState, toState: toState, transitor: msg.sender, timestamp: block.timestamp,blockNum:block.number,transitorOrigin:tx.origin })
     );
 
     //发射事件
@@ -345,7 +349,7 @@ abstract contract StateMachine {
   }
 
   /**
-   * @notice 状态机初始化，外部自定义
+   * @notice 外部实现-状态机初始化，外部自定义
    */
   function setupStateMachine() internal virtual;
 }
