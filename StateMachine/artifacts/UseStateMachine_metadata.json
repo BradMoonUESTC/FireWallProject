@@ -1,0 +1,444 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "param1",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "param2",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "param3",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "fromState",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "toState",
+						"type": "bytes32"
+					}
+				],
+				"name": "Transition",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "ROLE_ADMIN",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "STATE_FIVE",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "STATE_FOUR",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "STATE_ONE",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "STATE_THREE",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "STATE_TWO",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "_roles",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "param1",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "param2",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "param3",
+						"type": "uint256"
+					}
+				],
+				"name": "edit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllStates",
+				"outputs": [
+					{
+						"internalType": "bytes32[]",
+						"name": "allStates",
+						"type": "bytes32[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getCurrentState",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "state",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "getHistory",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "fromState",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "toState",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "transitor",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getHistoryLength",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getNextStates",
+				"outputs": [
+					{
+						"internalType": "bytes32[]",
+						"name": "nextStates",
+						"type": "bytes32[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "state",
+						"type": "bytes32"
+					}
+				],
+				"name": "getState",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "name",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32[]",
+						"name": "nextStates",
+						"type": "bytes32[]"
+					},
+					{
+						"internalType": "bytes32[]",
+						"name": "allowedRoles",
+						"type": "bytes32[]"
+					},
+					{
+						"internalType": "bytes4[]",
+						"name": "allowedFunctions",
+						"type": "bytes4[]"
+					},
+					{
+						"internalType": "bytes4",
+						"name": "preFunction",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "history",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "fromState",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "toState",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "transitor",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_param4",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "_param5",
+						"type": "bytes32"
+					}
+				],
+				"name": "testCallBack",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "toState",
+						"type": "bytes32"
+					}
+				],
+				"name": "transitionState",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"getHistory(uint256)": {
+					"details": "注意数组上界"
+				},
+				"transitionState(bytes32)": {
+					"params": {
+						"toState": "目标状态"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"edit(string,address,uint256)": {
+					"notice": "修改一些参数"
+				},
+				"getAllStates()": {
+					"notice": "查询当前状态机的所有已注册状态"
+				},
+				"getCurrentState()": {
+					"notice": "返回当前状态"
+				},
+				"getHistory(uint256)": {
+					"notice": "通过index返回某个历史状态"
+				},
+				"getHistoryLength()": {
+					"notice": "查询历史状态"
+				},
+				"getNextStates()": {
+					"notice": "查询状态机当前状态的所有的下一个可转换的状态"
+				},
+				"getState(bytes32)": {
+					"notice": "查询状态详情"
+				},
+				"transitionState(bytes32)": {
+					"notice": "执行状态转换，并执行所有在转换前要执行的函数（包括数据重置等自定义的函数），并发射事件到日志"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"StateMachine/UseStateMachine.sol": "UseStateMachine"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"StateMachine/StateMachine.sol": {
+			"keccak256": "0x3ecb373fda8d7305686dd8b06cd0cc8fa00c3dd30c5f5c5cc13d56458ca321ba",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3c9d4d609544c80d348c544f2924e18299c68ebd51fe8a37379da3c1146bf0b1",
+				"dweb:/ipfs/QmTp32jSsgR2GtanRC9pjEstSMp5w2YnqxzL3WZdpUZxa3"
+			]
+		},
+		"StateMachine/UseStateMachine.sol": {
+			"keccak256": "0xa713af4a5033343d9ecce6e454b49f10128997fa7bd2d667449d46d2270bb82e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://52c8f05de17bfbd73fb4d7d578690c1cc0dec584703e6321cc22258a2d46882e",
+				"dweb:/ipfs/QmVTpyqN5MsR6ez2br9pvqiC14rbX4J1EjdBt5yoGpNebU"
+			]
+		}
+	},
+	"version": 1
+}
