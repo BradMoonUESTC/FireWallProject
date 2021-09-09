@@ -49,9 +49,14 @@ contract UseStateMachine is StateMachine {
         //当然，我们这个时候就会进行各项检查比如preCondition，转换完进行callback
     }
 
-    function testCallBack(bytes32 _param4,bytes32 _param5) public {
-        //在状态转换后，我们可以对状态机的参数进行一些修改，甚至是状态规则的修改
+    function testCallBack(bytes32 oldState,bytes32 currentState) public {
+        //后件函数，在状态转换后，我们可以对状态机的参数进行一些修改，甚至是状态规则的修改
     }
+    function testPreCondition(bytes32 fromState,bytes32 currentState) view public{
+        //前件函数
+    }
+
+
     //===========================状态机初始化===========================
     function setupStateMachine() internal override {
         //生成状态
@@ -86,6 +91,8 @@ contract UseStateMachine is StateMachine {
         //它会自行调用本地上下文运行环境中满足这个函数签名的函数
 
         //TODO: 这个特性已经是很久就有的特性，可以尝试用于防火墙主架构或者模块中
+        //怎么用：直接把定义好的函数名（只有函数名）传进去即可，一定要满足bytes32，bytes32的形式（对应oldState和toState）
+        addPreConditionForState(STATE_TWO,testPreCondition);
         addCallbackForState(STATE_TWO, testCallBack);
     }
 

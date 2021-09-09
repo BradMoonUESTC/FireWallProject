@@ -17,8 +17,8 @@ abstract contract StateMachine {
    * 状态详细信息的数据结构
    *
    * 关于preConditions，callbacks：
-   * preCondition是用于基于当前状态的数据，检查是否满足目标状态的要求，用preCondition这样的函数来依次检查
-   * callbacks是在状态转换【后】要执行的一些必要性函数，比如数据重置等等
+   * preCondition就是前件处理函数，是用于基于当前状态的数据，检查是否满足目标状态的要求，用preCondition这样的函数来依次检查
+   * callbacks就是后件处理函数，是在状态转换【后】要执行的一些必要性函数，比如数据重置等等
    *
    * 关于preFunction：TODO
    * preFunction暂时不用，它的作用类似于callbacks，不同的是preFunction考虑是在状态转换【前】对状态进行整理
@@ -33,10 +33,18 @@ abstract contract StateMachine {
     // 当前状态涉及到的角色
     bytes32[] allowedRoles;
 
-    // 当前状态的前提验证函数
+    // 前件函数
+    /**
+     * @param bytes32 fromState
+     * @param bytes32 toState
+     */
     function(bytes32, bytes32) internal view[] preConditions;
 
-    // 在状态转换完成前要执行的函数
+    // 后件函数
+    /**
+     * @param bytes32 oldState
+     * @param bytes32 toState
+     */
     function(bytes32, bytes32) internal[] callbacks;
 
     // 接下来可以进行转换的状态
