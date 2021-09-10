@@ -22,7 +22,7 @@ import "./StateMachine.sol";
 //         _swap(amounts, path, to);
 //         =================================================================
 //         ---->state记录（记录address to,记录path[0],path[length-1],记录amountIn）
-//          记录方式：SWAP+PATH[0]+PATH[length-1]
+//          记录方式：SWAP+PATH[0]+PATH[length-1]？///
 //         =================================================================
 // }
 
@@ -31,7 +31,7 @@ contract DexStateMachine is StateMachine {
     //===========================状态初始化定义，后面也可以自己加（这里考虑用create2）===========================
     //对于dex中的币币兑换而言共有三步：1、计算能兑换的币；2、进行代币转账；3、进行swap函数处理；
     //在这里我们假设插桩只插在外围的router函数中，实际上也可以插在别的地方，插的桩越多状态就越多
-    //所以3步-》4个状态每步有前后
+    
 
     bytes32 public constant STATE_ONE = 'STATE_ONE';
     bytes32 public constant STATE_TWO = 'STATE_TWO';
@@ -70,11 +70,16 @@ contract DexStateMachine is StateMachine {
         pathFromIN = From;
         pathToIN = To;
         amountIN=amountToSwap;
-        if(getCurrentState()==STATE_ONE){transitionState(STATE_TWO);}
-        if(getCurrentState()==STATE_TWO){transitionState(STATE_ONE);}
+        if(getCurrentState()==STATE_ONE){
+            transitionState(STATE_TWO);
+            
+        }
+        if(getCurrentState()==STATE_TWO){
+            transitionState(STATE_ONE);
+            
+        }
         
     }
-
     function testCallBack(bytes32 oldState,bytes32 currentState) public {
         //后件函数，在状态转换后，我们可以对状态机的参数进行一些修改，甚至是状态规则的修改
     }
@@ -83,8 +88,6 @@ contract DexStateMachine is StateMachine {
         if(toIN==to&&pathFromIN==pathTo&&pathFrom==pathToIN&&amount==amountIN){
             //有问题
         }
-        //检测方式二：
-        //前件函数
 
 
     }
@@ -107,7 +110,8 @@ contract DexStateMachine is StateMachine {
 
         setInitialState(STATE_ONE);
 
-        addPreConditionForState(STATE_ONE,testPreCondition);
+        addPreFunctionsForState(STATE_ONE,testPreCondition);
+        addPreFunctionsForState(STATE_TWO,testPreCondition);
         // addCallbackForState(STATE_AFTER_SWAP, testCallBack);
     }
 }

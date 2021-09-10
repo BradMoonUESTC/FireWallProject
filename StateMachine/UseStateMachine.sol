@@ -92,8 +92,8 @@ contract UseStateMachine is StateMachine {
 
         //TODO: 这个特性已经是很久就有的特性，可以尝试用于防火墙主架构或者模块中
         //怎么用：直接把定义好的函数名（只有函数名）传进去即可，一定要满足bytes32，bytes32的形式（对应oldState和toState）
-        addPreConditionForState(STATE_TWO,testPreCondition);
-        addCallbackForState(STATE_TWO, testCallBack);
+        addPreFunctionsForState(STATE_TWO,testPreCondition);
+        addPostFunctionsForState(STATE_TWO, testCallBack);
     }
 
     /**
