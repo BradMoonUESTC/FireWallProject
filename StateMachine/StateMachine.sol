@@ -38,6 +38,7 @@ abstract contract StateMachine {
      * @param bytes32 fromState
      * @param bytes32 toState
      */
+    
     function(bytes32, bytes32) internal view[] preFunctions;
 
     // 后置函数
@@ -48,7 +49,7 @@ abstract contract StateMachine {
     function(bytes32, bytes32) internal[] postFunctions;
 
     // 前置条件满足后要进行的操作（动作），不一定要到次态
-    // 动作函数
+    // 动作函数,感觉没啥用，TODO
     /**
      * @param bytes32 fromState
      * @param bytes32 toState
@@ -57,11 +58,6 @@ abstract contract StateMachine {
 
     // 接下来可以进行转换的状态
     bytes32[] nextStates;
-
-    
-
-    //用一个mapping存储自定义的状态数据,用bytes32存储，所有存储的数据全部转化为bytes32
-    mapping(string=>bytes32) Data;
   }
 
   // 历史状态数据
@@ -80,7 +76,7 @@ abstract contract StateMachine {
   mapping(bytes32 => State) internal states;
 
   //当前状态机所有已注册状态
-  bytes32[] internal possibleStates;
+  bytes32[] internal registedStates;
 
   //状态机的当前状态
   bytes32 internal currentState;
@@ -96,7 +92,7 @@ abstract contract StateMachine {
    * @notice 检查状态是否被初始化
    */
   modifier checkStateMachineSetup {
-    require(possibleStates.length > 0, 'this statemachine has not been setup yet');
+    require(registedStates.length > 0, 'the state machine has not been setup');
     _;
   }
 
@@ -104,7 +100,7 @@ abstract contract StateMachine {
    * @notice 检查当前函数是否允许在状态中执行
    */
   modifier checkAllowedFunction {
-    require(states[currentState].registedFunctions[msg.sig], 'this function is not allowed in this state');
+    require(states[currentState].registedFunctions[msg.sig], 'the function is not allowed run in this currentState');
     _;
   }
 
@@ -120,7 +116,7 @@ abstract contract StateMachine {
    * @notice 检查状态是否存在
    */
   modifier doesStateExist(bytes32 state) {
-    require(states[state].ifCreated, 'the state has not been created yet');
+    require(states[state].ifCreated, 'this state is not created');
     _;
   }
 
@@ -148,7 +144,7 @@ abstract contract StateMachine {
       address transitorOrigin
     )
   {
-    // require(index >= 0 && index < history.length, 'Index out of bounds');//TODO: 考虑不增加这个断言，感觉没啥用
+
     return (history[index].fromState, history[index].toState, history[index].transitor, history[index].timestamp,history[index].blockNum,history[index].transitorOrigin);
   }
 
@@ -156,7 +152,6 @@ abstract contract StateMachine {
    * @notice 返回当前状态
    */
   function getCurrentState() public view returns (bytes32 state) {
-    //require(states[currentState].ifCreated, 'the initial state has not been created yet');//TODO: 考虑不增加这个断言，感觉没啥用
     return currentState;
   }
 
@@ -164,7 +159,7 @@ abstract contract StateMachine {
    * @notice 查询当前状态机的所有已注册状态
    */
   function getAllStates() public view returns (bytes32[] memory allStates) {
-    return possibleStates;
+    return registedStates;
   }
 
   /**
@@ -215,7 +210,7 @@ abstract contract StateMachine {
     currentState = toState;
 
     function(bytes32, bytes32) internal[] storage postFunctions = states[toState].postFunctions;
-    // TODO:！！！！！重新考虑下这种调用方法
+    // TODO
     for (uint256 i = 0; i < postFunctions.length; i++) {
       postFunctions[i](oldState, toState);
     }
@@ -245,7 +240,7 @@ abstract contract StateMachine {
   function createState(bytes32 stateName) internal {
     require(!states[stateName].ifCreated, 'this state has already been created');
     states[stateName].ifCreated = true;
-    possibleStates.push(stateName);
+    registedStates.push(stateName);
   }
 
   /**
@@ -293,6 +288,32 @@ abstract contract StateMachine {
   function setActionFunctionForState(bytes32 state, function(bytes32, bytes32) internal actionFunction) internal doesStateExist(state) {
     states[state].actionFunctions.push(actionFunction);
   }
+  
+  /**
+   * @dev 移除可用的前置函数
+   */  
+  function removePreFunctionForStateByIndex(bytes32 state,uint index) internal doesStateExist(state) returns (function(bytes32, bytes32) internal view[] memory){
+    function(bytes32, bytes32) internal view[] storage functions = states[state].preFunctions;
+      if(index >= functions.length) return functions;
+      for(uint i = index; i<functions.length-1;i++) {
+        functions[i]=functions[i+1];
+      }
+      delete functions[functions.length-1];
+      return functions;
+  }
+
+    /**
+   * @dev 移除可用的后置函数
+   */  
+  function removePostFunctionForStateByIndex(bytes32 state,uint index) internal doesStateExist(state) returns (function(bytes32, bytes32) internal[] memory){
+    function(bytes32, bytes32) internal [] storage functions = states[state].postFunctions;
+      if(index >= functions.length) return functions;
+      for(uint i = index; i<functions.length-1;i++) {
+        functions[i]=functions[i+1];
+      }
+      delete functions[functions.length-1];
+      return functions;
+  }
 
   /**
    * @notice 为状态机设置初始状态
@@ -310,20 +331,20 @@ abstract contract StateMachine {
    * @dev 状态是否存在？
    * @dev 两个状态是否可以转换？
    * @dev 状态转换权是否满足（角色）？
-   * @dev 状态前提条件是否满足？
+   * @dev 状态前置函数是否满足？
    */
   function checkTransitionIfLegalByCurrentState(bytes32 fromState, bytes32 toState) private view {
     require(states[fromState].ifCreated, 'from state not been created');
     require(states[toState].ifCreated, 'to state not been created');
     require(checkNextStates(fromState, toState), 'from state is not linked to to state');
     require(checkRegistedRoles(toState), 'cureent role has no right to transition state'); 
-    checkPreFunctions(fromState, toState);//检查前提条件，不对就回滚 TODO:这里考虑改成返回bool来控制，前提条件不要太严格？
+    checkPreFunctions(fromState, toState);//检查前置函数，具体操作由自定义的前置函数来决定
   }
 
   /**
    * @notice 检查两个状态是否可以转换
    */
-  function checkNextStates(bytes32 fromState, bytes32 toState) private view returns (bool hasNextState) {
+  function checkNextStates(bytes32 fromState, bytes32 toState) internal view returns (bool hasNextState) {
     hasNextState = false;
     bytes32[] storage nextStates = states[fromState].nextStates;
     //TODO:这里需要遍历，考虑优化
@@ -347,6 +368,7 @@ abstract contract StateMachine {
 
   /**
    * @notice 检查状态前提条件是否满足，这里用函数的形式检查，检查通过后执行动作函数（不一定要到次态）
+   * @dev 这个好像没啥用，留着
    */
   function checkPreFunctionsAndAction(bytes32 fromState, bytes32 toState) private {
     function(bytes32, bytes32) internal view[] storage preFunctions = states[toState].preFunctions;
@@ -369,12 +391,6 @@ abstract contract StateMachine {
     if (registedRoles.length == 0) {
       isAllowed = true;
     }
-    // for (uint256 i = 0; i < registedRoles.length; i++) {
-    //   if (canPerform(msg.sender, registedRoles[i])) {
-    //     isAllowed = true;
-    //     break;
-    //   }
-    // }
   }
 
   /**
