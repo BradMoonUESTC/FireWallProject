@@ -10,7 +10,7 @@ import "./StateMachine.sol";
 
 contract UseStateMachine is StateMachine {
 
-    //===========================状态初始化定义，后面也可以自己加（这里考虑用create2）===========================
+    //===========================状态初始化定义，后面也可以自己加//（这里考虑用create2(不用看这句)）===========================
     bytes32 public constant STATE_ONE = 'STAGE_ONE_NAME';
     bytes32 public constant STATE_TWO = 'STAGE_TWO_NAME';
     bytes32 public constant STATE_THREE = 'STAGE_THREE_NAME';
@@ -41,19 +41,30 @@ contract UseStateMachine is StateMachine {
         _param2 = param2;
         _param3 = param3;
     }
-
-    function activateSTATETransition() public{
-        //当满足某一个条件时，我们可以对状态进行修改
-        //if()....
+    address test3;
+    uint test4;
+    string test5;
+    address testControll;
+    address testControll2;
+    function activateSTATETransition(address test,uint test1,string memory test2) public{
+        test3=test;
+        test4=test1;
+        test5=test2;
+        testControll=test;
         transitionState(STATE_TWO);
-        //当然，我们这个时候就会进行各项检查比如preCondition，转换完进行callback
     }
+
 
     function testCallBack(bytes32 oldState,bytes32 currentState) public {
-        //后件函数，在状态转换后，我们可以对状态机的参数进行一些修改，甚至是状态规则的修改
+        testControll2=test3;
+        test3=address(0);
+        test4=0;
+        test5="";
+        //后置函数，在状态转换后，我们可以对状态机的参数进行一些修改，甚至是状态规则的修改
+
     }
     function testPreCondition(bytes32 fromState,bytes32 currentState) view public{
-        //前件函数
+        //前置函数
     }
 
 
@@ -64,6 +75,7 @@ contract UseStateMachine is StateMachine {
         createState(STATE_TWO);
         createState(STATE_THREE);
         createState(STATE_FOUR);
+        
 
         // 为状态进行连接
         // STATE_ONE
@@ -88,7 +100,7 @@ contract UseStateMachine is StateMachine {
         //看这个链接：https://ethereum.stackexchange.com/questions/3342/pass-a-function-as-a-parameter-in-solidity
         //以及：https://docs.soliditylang.org/en/latest/types.html#function-types
         //其原理不难，其实就是在合约继承的情况下（也就是都在一个合约里）用函数keccak256之后的8位函数签名+参数来进行调用
-        //它会自行调用本地上下文运行环境中满足这个函数签名的函数
+        //****它会自行调用本地上下文运行环境中满足这个函数签名的函数
 
         //TODO: 这个特性已经是很久就有的特性，可以尝试用于防火墙主架构或者模块中
         //怎么用：直接把定义好的函数名（只有函数名）传进去即可，一定要满足bytes32，bytes32的形式（对应oldState和toState）

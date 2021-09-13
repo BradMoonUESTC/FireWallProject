@@ -24,7 +24,7 @@ abstract contract StateMachine {
    * preFunction暂时不用，它的作用类似于postFunctions，不同的是preFunction考虑是在状态转换【前】对状态进行整理
    */
   struct State {
-    // 状态是否被创建
+    // 状态是否被创建*****
     bool ifCreated;
 
     // 已注册的函数
@@ -33,7 +33,7 @@ abstract contract StateMachine {
     // 当前状态涉及到的角色
     bytes32[] registedRoles;
 
-    // 前置函数（条件）
+    // 前置函数（条件）*****
     /**
      * @param bytes32 fromState
      * @param bytes32 toState
@@ -41,7 +41,7 @@ abstract contract StateMachine {
     
     function(bytes32, bytes32) internal view[] preFunctions;
 
-    // 后置函数
+    // 后置函数*****
     /**
      * @param bytes32 fromState
      * @param bytes32 toState
@@ -56,7 +56,7 @@ abstract contract StateMachine {
      */
     function(bytes32, bytes32) internal[] actionFunctions;
 
-    // 接下来可以进行转换的状态
+    // 接下来可以进行转换的状态*****
     bytes32[] nextStates;
   }
 
